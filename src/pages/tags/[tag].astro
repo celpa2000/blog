@@ -19,7 +19,7 @@ import type { string } from 'astro:schema';
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const allPosts = await Astro.glob('../posts/*.md');
-  console.log(allPosts);
+
   return [
     { params: { tag: "astro" } ,props: {posts: allPosts}},
     { params: { tag: "éxitos" },props: {posts: allPosts} },
@@ -37,7 +37,7 @@ const filteredPosts = posts.filter((post) => post.frontmatter.tags?.includes(tag
 ---
 <BaseLayout pageTitle={tag}>
   <p>Entradas etiquetadas con {tag}</p>
-  {console.log(tag)}
+  
   
   <ul>
     {filteredPosts.map(post => <BlogPost url={post.url} title={post.frontmatter.title}/>)}
