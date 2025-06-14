@@ -4,13 +4,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = "Mi blog de aprendizaje"
 
 const allPosts = await Astro.glob("../pages/posts/*.md")
-const {ruta} = Astro.props
 
 ---
 
 <BaseLayout pageTitle={pageTitle}>
       
-  <a href={`/home/${ruta}`}>click</a>
+  
   <p>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
    <ul>
       {allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} />)}

@@ -4,7 +4,23 @@ const {url,title} = Astro.props
 ---
 
 
-<li><a href={url}>{title}</a></li>
+<li class="lista"><a href={url}>{title}</a></li>
 
-
+<style>
+    li{
+        list-style: none;
+        padding: 5px;
+        a{
+            text-decoration: none;
+            background-color: antiquewhite;
+            padding: 5px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        a:hover{
+            background-color:#0d0950;
+            color: antiquewhite;
+        }
+    }
+</style>
 
